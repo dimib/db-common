@@ -12,7 +12,7 @@ public extension String {
         NSLocalizedString(string, comment: "")
     }
 
-    static func localized(_ format: String, args: String...) -> String {
+    static func localized(_ format: String, _ args: Any...) -> String {
         let localizedString = localized(format)
         return String.init(format: localizedString, args)
     }
