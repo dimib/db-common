@@ -8,12 +8,13 @@
 import Foundation
 
 public extension String {
-    static func localized(_ string: String) -> String {
-        NSLocalizedString(string, comment: "")
+
+    init(l18n key: String) {
+        self = NSLocalizedString(key, comment: "")
     }
 
-    static func localized(_ format: String, _ args: Any...) -> String {
-        let localizedString = localized(format)
-        return String.init(format: localizedString, args)
+    init(l18n key: String, args: CVarArg...) {
+        let localizedString = NSLocalizedString(key, comment: "")
+        self = String.init(format: localizedString, args)
     }
 }
